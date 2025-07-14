@@ -144,11 +144,25 @@ function getBook(id) {
 }
 
 // Destructuring
-const book = getBook(2);
+const book = getBook(1);
 const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
 	book;
 
-const [primaryGenre, secondaryGenre] = genres;
+// Rest operator
+const [primaryGenre, secondaryGenre, ...otherGenres] = genres;
+console.log(primaryGenre, secondaryGenre, otherGenres);
 
-primaryGenre;
-secondaryGenre;
+// Spread operator
+const newGenres = [...genres, "epic fantasy"];
+newGenres;
+
+// Adding and Overriding properties
+// Note: The order matters, overriding first and then spreading will reset the properties
+const updatedBook = {
+	...book,
+	// Adding a new property
+	moviePublicationDate: "2001-12-19",
+	// Overriding an existing property
+	pages: 1210,
+};
+updatedBook;
