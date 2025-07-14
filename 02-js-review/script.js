@@ -167,10 +167,23 @@ const updatedBook = {
 };
 updatedBook;
 
+// Function declaration
+function getYear1(str) {
+	return str.split("-")[0];
+}
+
+// Arrow function
+const getYear2 = (str) => str.split("-")[0];
+
+// Full arrow function
+const getYear3 = (str) => {
+	return str.split("-")[0];
+};
+
 // Template literals
-const summary = `${title}, a ${pages}-page long book, written by ${author} and published in ${
-	publicationDate.split("-")[0]
-}. The book has ${hasMovieAdaptation ? "" : "not"} been adapted into a movie.`;
+const summary = `${title}, a ${pages}-page long book, written by ${author} and published in ${getYear2(
+	publicationDate
+)}. The book has ${hasMovieAdaptation ? "" : "not"} been adapted into a movie.`;
 summary;
 
 // Ternary operator
