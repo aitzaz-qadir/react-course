@@ -144,7 +144,7 @@ function getBook(id) {
 }
 
 // Destructuring
-const book = getBook(1);
+const book = getBook(2);
 const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
 	book;
 
@@ -190,3 +190,25 @@ summary;
 const pageRange = pages > 1000 ? "over a thousand" : "less then thousand";
 pageRange;
 console.log(`The book has ${pageRange} pages.`);
+
+// Short circuiting
+console.log(true && "Some string");
+console.log(false && "Some string");
+
+// Replace boolean with condition
+// Can be used as print if the condition is truthy
+console.log(hasMovieAdaptation && "This book has a movie adaptation.");
+
+// falsy = 0, "", null, undefined
+// truthy = "string", 1, [], {}, true
+
+// Logical OR operator opposite of AND operator
+console.log(true || "Some string");
+console.log(false || "Some string");
+
+// Replace boolean with condition
+// Can be used as print if the condition is falsy
+console.log(book.translations.spanish || "No translation available.");
+console.log(book.reviews.librarything.reviewsCount || "No data available.");
+// Nullish coalescing operator only replaces null or undefined
+console.log(book.reviews.librarything.reviewsCount ?? "No data available.");
